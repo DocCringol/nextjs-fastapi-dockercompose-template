@@ -1,0 +1,59 @@
+version: "3.9"
+services:
+  fluentd:
+    image: fluent/fluentd:latest
+    volumes:
+      - ./fluentd:/fluentd/etc
+      - ./logs:/fluentd/log
+    ports: 
+      - "24224:24224"
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "24224"]
+      interval: 1s
+      timeout: 1s
+      retries: 30
+
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./db/chroma-db:/app/chroma-db
+    depends_on:
+      fluentd:
+        condition: service_healthy
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: backend
+      
+  db-api:
+    build:
+      context: db
+      dockerfile: Dockerfile
+    volumes:
+      - ./db/chroma-db:/app/chroma-db
+    depends_on:
+      fluentd:
+        condition: service_healthy
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: db-api
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: dev.Dockerfile
+    ports:
+      - "8080:3000"
+    depends_on:
+      fluentd:
+        condition: service_healthy
+    logging:
+      driver: fluentd
+      options:
+        fluentd-address: localhost:24224
+        tag: frontend

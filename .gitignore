@@ -1,0 +1,33 @@
+# Common
+.idea
+.vscode
+
+/logs
+*/logs
+
+# Backend
+
+*/__pycache__
+
+# Database
+db/chroma-db
+
+# Frontend
+
+*/node_modules
+*/build
+*/.npm
+
+# Default from create-react-app (Don't know if it's working, maybe wrong path. I personally don't use it, so don't know how to test and fix it)
+
+/.pnp
+.pnp.js
+*/coverage
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
