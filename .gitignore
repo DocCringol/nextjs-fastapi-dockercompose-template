@@ -17,6 +17,7 @@ db/chroma-db
 */node_modules
 */build
 */.npm
+*/.next
 
 # Default from create-react-app (Don't know if it's working, maybe wrong path. I personally don't use it, so don't know how to test and fix it)
 

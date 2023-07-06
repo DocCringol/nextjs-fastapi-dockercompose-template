@@ -1,6 +1,6 @@
 # Yet Another Template??? (give me a name, please)
 ## Consists of:
-- ReactJS fronted
+- Next.js fronted
 - FastAPI backend 
 - Database API (on FastAPI again, for my own curtain purposes, easy to remove)
 - Everything in Docker Compose
@@ -14,5 +14,5 @@ docker-compose -f "dev.docker-compose.yaml" up --build --force-recreate -d
 ```
 
 ## Todo
-- FIX problem with reaching backend from frontend (probably some problem with docker networking)
+- Add support of FastAPI Routes, instead of 2 APIs
 - Output logs in a more readable form
