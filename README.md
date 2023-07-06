@@ -1,6 +1,6 @@
 # Yet Another Template??? (give me a name, please)
 ## Consists of:
-- Next.js fronted
+- Next.js frontend
 - FastAPI backend 
 - Database API (on FastAPI again, for my own curtain purposes, easy to remove)
 - Everything in Docker Compose
