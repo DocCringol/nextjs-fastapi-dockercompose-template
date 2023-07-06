@@ -14,5 +14,5 @@ docker-compose -f "dev.docker-compose.yaml" up --build --force-recreate -d
 ```
 
 ## Todo
-- Add support of FastAPI Routes, instead of 2 APIs
+- Make everything ".env'able"
 - Output logs in a more readable form

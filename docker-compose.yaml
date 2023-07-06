@@ -25,19 +25,6 @@ services:
       options:
         fluentd-address: localhost:24224
         tag: backend
-      
-  db-api:
-    build:
-      context: db
-      dockerfile: Dockerfile
-    depends_on:
-      fluentd:
-        condition: service_healthy
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: localhost:24224
-        tag: db-api
 
   frontend:
     build:
