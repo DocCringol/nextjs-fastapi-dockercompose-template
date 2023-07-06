@@ -17,8 +17,6 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
-    volumes:
-      - ./db/chroma-db:/app/chroma-db
     depends_on:
       fluentd:
         condition: service_healthy
@@ -32,8 +30,6 @@ services:
     build:
       context: db
       dockerfile: Dockerfile
-    volumes:
-      - ./db/chroma-db:/app/chroma-db
     depends_on:
       fluentd:
         condition: service_healthy

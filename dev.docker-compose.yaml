@@ -21,7 +21,6 @@ services:
       - "8989:5000"
     volumes:
       - ./backend:/app
-      - ./db/chroma-db:/app/chroma-db
     environment:
       - DEV_MODE=1
     depends_on:
@@ -41,7 +40,6 @@ services:
       - "9898:5000"
     volumes:
       - ./db:/app
-      - ./db/chroma-db:/app/chroma-db
     environment:
       - DEV_MODE=1
     depends_on:
