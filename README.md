@@ -14,5 +14,4 @@ docker-compose -f "dev.docker-compose.yaml" up --build --force-recreate -d
 ```
 
 ## Todo
-- Make everything ".env'able"
 - Output logs in a more readable form
