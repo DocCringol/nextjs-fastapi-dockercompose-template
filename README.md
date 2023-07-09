@@ -1,8 +1,7 @@
-# Yet Another Template??? (give me a name, please)
+# Next.js + FastAPI web app template
 ## Consists of:
-- Next.js frontend
-- FastAPI backend 
-- Database API (on FastAPI again, for my own curtain purposes, easy to remove)
+- Next.js frontend (+tailwind)
+- FastAPI backend
 - Everything in Docker Compose
 - Logging into files with fluentd docker driver
 
