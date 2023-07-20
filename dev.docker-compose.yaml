@@ -11,7 +11,8 @@ services:
     volumes:
       - ./backend:/app
     environment:
-      - DEV_MODE=1
+      - HOT_RELOAD=1
+      - LOG_LEVEL=debug
 
   frontend:
     build:
@@ -26,4 +27,5 @@ services:
       - ./frontend:/app
     environment:
       - WATCHPACK_POLLING=true
+      - LOG_LEVEL=debug
     stdin_open: true
