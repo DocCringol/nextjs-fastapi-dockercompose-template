@@ -3,7 +3,6 @@
 - Next.js frontend (+tailwind)
 - FastAPI backend
 - Everything in Docker Compose
-- Logging into files with fluentd docker driver
 
 When using dev.docker-compose.yaml everything hot-reloaded (frontend needs manual reload in browser)
 
@@ -13,4 +12,4 @@ docker-compose -f "dev.docker-compose.yaml" up --build --force-recreate -d
 ```
 
 ## Todo
-- Output logs in a more readable form
+- Log frontend

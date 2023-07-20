@@ -1,34 +1,11 @@
 version: "3.9"
 services:
-  fluentd:
-    image: fluent/fluentd:v1.16-1
-    env_file:
-      - .env
-    volumes:
-      - ./fluentd:/fluentd/etc
-      - ./logs:/fluentd/log
-    ports: 
-      - ${FLUENTD_PORT}:24224
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "24224"]
-      interval: 1s
-      timeout: 1s
-      retries: 30
-
   backend:
     build:
       context: backend
       dockerfile: Dockerfile
     env_file:
       - .env
-    depends_on:
-      fluentd:
-        condition: service_healthy
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: localhost:${FLUENTD_PORT}
-        tag: backend
 
   frontend:
     build:
@@ -38,11 +15,3 @@ services:
       - .env
     ports:
       - ${FRONTEND_PORT}:3000
-    depends_on:
-      fluentd:
-        condition: service_healthy
-    logging:
-      driver: fluentd
-      options:
-        fluentd-address: localhost:${FLUENTD_PORT}
-        tag: frontend
